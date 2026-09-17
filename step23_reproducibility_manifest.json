@@ -1,0 +1,22 @@
+{
+  "step": 23,
+  "benchmark_version": "STEP17E-FINAL-80",
+  "routing_version": "STEP20-SEQUENCE-AWARE",
+  "ablation_version": "STEP21-CORRECTED",
+  "llm_pilot_version": "STEP22-CONTROLLED-2-CASE",
+  "artifact_count": 11,
+  "artifact_sha256": {
+    "step17e_final_thesis_benchmark.json": "e3c4822f9d5eb9d2cd3292e14f32632c6762d04ebfa5ea824cb496772c43bf11",
+    "step17e_benchmark_manifest.json": "85c22af05bbae3453852db5f58efdfc9dbe4436b005e0a96829d65cfabdf4a9e",
+    "step18_final_benchmark_results.json": "0945621274b16e90f7e44bf63585ddf9bead26f87f9a279384b589589d1c27cd",
+    "step18_final_benchmark_manifest.json": "c4a5d3eecdb41ddc80cf0dc9152c8f0789940c82ba659de39a5d02de1bdfad20",
+    "step20_sequence_routing_validation.json": "5c5da5ace09e4103ae74ebc2a0d25c27a91be27d0b33c5635231a5e4d7b20768",
+    "step20_sequence_routing_manifest.json": "53c6ecd93b05457c7471051513a46c411533abb0dd51209240cc0c29851305c4",
+    "step21_corrected_security_ablation.json": "e9ac5648292665f92885a460dddc48ccf6fad728f170f8fef6333d4c680fe60c",
+    "step21_corrected_security_ablation_manifest.json": "7bdd4421fb45a5ee4932fa6227d13016d52437e805a4cae80c3899585edee5c0",
+    "step22_local_llm_pilot_results.json": "dc7ed8a91ab90def4a74630d961a3579e5caaae9d3c1ddfb1c2560d7c7d0313f",
+    "step22_local_llm_pilot_manifest.json": "2251e043b471f1f54aaf0eb952ceb775cb9bbdd73548efdd57f6e3459d349d4a",
+    "step16_thesis_metrics.json": "a0e624115a87bba397702c56e789cc020281eb26ffaf60ffddc5e39dc327d0fc"
+  },
+  "llm_calls_in_step23": 0
+}

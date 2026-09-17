@@ -1,0 +1,132 @@
+{
+  "project": {
+    "benchmark_version": "STEP17E-FINAL-80",
+    "routing_version": "STEP20-SEQUENCE-AWARE",
+    "ablation_version": "STEP21-CORRECTED",
+    "llm_pilot_version": "STEP22-CONTROLLED-2-CASE"
+  },
+  "final_benchmark": {
+    "events": 80,
+    "family_distribution": {
+      "ADAPTIVE_BEHAVIORAL_EVASION": 10,
+      "BENIGN_NORMAL": 10,
+      "EPHEMERAL_IDENTITY_CHURN": 10,
+      "METADATA_PROMPT_INJECTION": 10,
+      "SEQUENCE_CONTEXT_PRIVILEGE_CHAIN": 10,
+      "TOKEN_REPLAY_MISUSE": 10,
+      "UNAUTHORIZED_ACTION": 10,
+      "VOLUMETRIC_SPIKE": 10
+    },
+    "sha256": "e3c4822f9d5eb9d2cd3292e14f32632c6762d04ebfa5ea824cb496772c43bf11"
+  },
+  "final_ablation": {
+    "table": [
+      {
+        "configuration": "A — PDP ONLY",
+        "events": 80,
+        "accuracy_pct": 56.25,
+        "false_positives": 0,
+        "false_negatives": 35,
+        "false_positive_rate_pct": 0.0,
+        "false_negative_rate_pct": 58.333333333333336,
+        "p95_latency_ms": 0.1917013992624561
+      },
+      {
+        "configuration": "B — PDP + ML",
+        "events": 80,
+        "accuracy_pct": 77.5,
+        "false_positives": 3,
+        "false_negatives": 15,
+        "false_positive_rate_pct": 15.0,
+        "false_negative_rate_pct": 25.0,
+        "p95_latency_ms": 30.155123450413143
+      },
+      {
+        "configuration": "C — PDP + ML + GUARDRAIL",
+        "events": 80,
+        "accuracy_pct": 90.0,
+        "false_positives": 3,
+        "false_negatives": 5,
+        "false_positive_rate_pct": 15.0,
+        "false_negative_rate_pct": 8.333333333333332,
+        "p95_latency_ms": 26.592961000324063
+      },
+      {
+        "configuration": "D — FULL HYBRID / CORRECTED",
+        "events": 80,
+        "accuracy_pct": 96.25,
+        "false_positives": 3,
+        "false_negatives": 0,
+        "false_positive_rate_pct": 15.0,
+        "false_negative_rate_pct": 0.0,
+        "p95_latency_ms": 27.44348345049729
+      }
+    ],
+    "sequence_false_negatives_before": 5,
+    "sequence_false_negatives_after": 0,
+    "sequence_semantic_triggers": 5,
+    "sequence_fail_safe_quarantines": 5,
+    "prompt_guardrail_detections": 10,
+    "prompt_false_negatives": 0
+  },
+  "routing": {
+    "semantic_routes": 35,
+    "semantic_route_percentage": 43.75,
+    "sequence_routes": 5,
+    "guardrail_routes": 10,
+    "ml_routes": 20,
+    "adaptive_routes": 10
+  },
+  "local_llm_pilot": {
+    "model": "qwen2.5:1.5b-instruct",
+    "calls": 2,
+    "prompt_injection": {
+      "schema_compliant": true,
+      "structured_injection_flag": false,
+      "semantic_signal_detected": true,
+      "latency_seconds": 31.538904052999897
+    },
+    "sequence_context": {
+      "schema_compliant": true,
+      "structured_sequence_flag": false,
+      "semantic_signal_detected": false,
+      "latency_seconds": 26.95595228900038,
+      "output_inconsistency": true
+    },
+    "thesis_scale_accuracy_claimed": false
+  },
+  "historical_step16": {
+    "multiclass_accuracy_pct": null,
+    "multiclass_macro_f1": null,
+    "binary_precision": null,
+    "binary_recall": null,
+    "binary_f1": null,
+    "false_positive_rate_pct": null,
+    "false_negative_rate_pct": null
+  },
+  "limitations": [
+    "The 80-event benchmark is controlled synthetic telemetry, not production traffic.",
+    "The local LLM evaluation contains only two real inference cases and is not statistically sufficient for model-accuracy estimation.",
+    "The 96.25% corrected full-hybrid figure is an architecture/fail-safe benchmark result, not an LLM accuracy score.",
+    "Three benign events were classified as behavioral anomalies by ML and therefore routed conservatively.",
+    "The local model produced a structured sequence-field inconsistency where the justification mentioned a sequence anomaly while the sequence_anomaly field remained false.",
+    "Step-16 metrics are retained as historical measurements and are not the final Step-21 benchmark."
+  ],
+  "cost_and_infrastructure": {
+    "inference_backend": "Ollama",
+    "local_model": "qwen2.5:1.5b-instruct"
+  },
+  "artifact_sha256": {
+    "step17e_final_thesis_benchmark.json": "e3c4822f9d5eb9d2cd3292e14f32632c6762d04ebfa5ea824cb496772c43bf11",
+    "step17e_benchmark_manifest.json": "85c22af05bbae3453852db5f58efdfc9dbe4436b005e0a96829d65cfabdf4a9e",
+    "step18_final_benchmark_results.json": "0945621274b16e90f7e44bf63585ddf9bead26f87f9a279384b589589d1c27cd",
+    "step18_final_benchmark_manifest.json": "c4a5d3eecdb41ddc80cf0dc9152c8f0789940c82ba659de39a5d02de1bdfad20",
+    "step20_sequence_routing_validation.json": "5c5da5ace09e4103ae74ebc2a0d25c27a91be27d0b33c5635231a5e4d7b20768",
+    "step20_sequence_routing_manifest.json": "53c6ecd93b05457c7471051513a46c411533abb0dd51209240cc0c29851305c4",
+    "step21_corrected_security_ablation.json": "e9ac5648292665f92885a460dddc48ccf6fad728f170f8fef6333d4c680fe60c",
+    "step21_corrected_security_ablation_manifest.json": "7bdd4421fb45a5ee4932fa6227d13016d52437e805a4cae80c3899585edee5c0",
+    "step22_local_llm_pilot_results.json": "dc7ed8a91ab90def4a74630d961a3579e5caaae9d3c1ddfb1c2560d7c7d0313f",
+    "step22_local_llm_pilot_manifest.json": "2251e043b471f1f54aaf0eb952ceb775cb9bbdd73548efdd57f6e3459d349d4a",
+    "step16_thesis_metrics.json": "a0e624115a87bba397702c56e789cc020281eb26ffaf60ffddc5e39dc327d0fc"
+  }
+}
