@@ -107,6 +107,6 @@ The notebook contains the implementation, benchmark generation, evaluation, and 
 
 ## Reproducibility
 
-The project uses synthetic telemetry and local inference components. The repository does not contain API keys, passwords, tokens, or private credentials.
+The project uses synthetic telemetry and local inference components.
 
 The notebook is intended to be executed in a compatible Python/Google Colab environment with the required dependencies and local Ollama/Qwen model configuration.
