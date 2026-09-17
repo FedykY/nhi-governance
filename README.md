@@ -101,7 +101,7 @@ The architecture therefore keeps deterministic authorization independent of the 
 
 The complete implementation is provided in the final Jupyter/Google Colab notebook:
 
-**`Fedyk_NHI_Auditor_FINAL_(3).ipynb`**
+**`Fedyk_NHI_Auditor`**
 
 The notebook contains the implementation, benchmark generation, evaluation, and reproducibility workflow.
 
