@@ -79,8 +79,8 @@ Four configurations were evaluated:
 | Configuration | Accuracy | False Negatives | False Positives |
 |---|---:|---:|---:|
 | PDP only | 56.25% | 35 | 0 |
-| PDP + behavioral ML | 77.50% | 15 | 3 |
-| PDP + ML + guardrail | 90.00% | 5 | 3 |
+| PDP + behavioral ML | 77.5% | 15 | 3 |
+| PDP + ML + guardrail | 90% | 5 | 3 |
 | Full hybrid configuration | 96.25% | 0 | 3 |
 
 The full hybrid configuration includes sequence-aware routing.
